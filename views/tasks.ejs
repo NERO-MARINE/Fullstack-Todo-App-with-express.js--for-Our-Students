@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<%- include("./partials/head") %>
+
+    <body>
+        <!-- nav bar -->
+        <%- include("./partials/nav") %>
+
+            <div class="container">
+                <h1>My Tasks</h1>
+                <ul class="task-list">
+                    <li class="task-item">
+                        <span>Buy groceries</span>
+                        <div class="task-actions">
+                            <a href="/edit/1" class="edit-btn">Edit</a>
+                            <a href="/delete/1" class="delete-btn">Delete</a>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <span>Finish project report</span>
+                        <div class="task-actions">
+                            <a href="/edit/2" class="edit-btn">Edit</a>
+                            <a href="/delete/2" class="delete-btn">Delete</a>
+                        </div>
+                    </li>
+                    <li class="task-item">
+                        <span>Call the plumber</span>
+                        <div class="task-actions">
+                            <a href="/edit/3" class="edit-btn">Edit</a>
+                            <a href="/delete/3" class="delete-btn">Delete</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+    </body>
+
+</html>
