@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
+const user_routes = require("./routes/user_routes");
+const auth_routes = require("./routes/auth_routes");
 
 // use static files
 app.use(express.static("public"));
@@ -34,21 +36,13 @@ const connectDB = async () => {
 connectDB();
 
 
-app.get("/", (req, res)=>{
-    res.render("index", {title : "Home page"});
+// routes
+app.use(user_routes);
+app.use(auth_routes);
+app.use((req, res)=>{
+    res.status(404).render("404", {title: "Error page"})
 });
 
-app.get("/login", (req, res)=>{
-    res.render("auth/login", {title: "Login page"});
-});
-
-app.get("/signup", (req, res)=>{
-    res.render("auth/signup", {title: "Signup page"});
-});
-
-app.get("/tasks", (req, res)=>{
-    res.render("tasks", {title: "All Tasks"});
-});
 
 app.listen(port, ()=>{
     console.log(`listening to request at port ${port}`);
